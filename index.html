@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Theogon</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script type="text/javascript" src="theogon.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div id="inputs">
+			<select name="months" id="mon">
+				<option value="0">Irus</option>
+				<option value="1">Sulikh</option>
+				<option value="2">Kryptos</option>
+				<option value="3">Djouma</option>
+				<option value="4">Hester</option>
+				<option value="5">Arkadi</option>
+				<option value="6">Conclave</option>
+				<option value="7">Bonmot</option>
+				<option value="8">Agnos</option>
+				<option value="9">Ankit</option>
+				<option value="10">Tur</option>
+				<option value="11">Okul</option>
+			</select>
+			<input type="number" id="day" min="1" max="30" value="1">
+		</div>
+		<!--
+		month associations
+		zodiac
+		season
+		festivals
+		phase of the moons
+		moonlight
+		total light
+		moon peaks
+		moonluck
+		-->
+		<div id="general">
+			<h2 id="name"></h2>
+			<p>Month of <span id="domain"></span></p>
+			<p>Season: <span id="season"></span> (<span id="analog"></span>)</p>
+			<p>Zodiac: Sign of the <span id="zodiac"></span></p>
+			<p><span id="festivals"></span></p>
+		</div>
+		<div id="moons">
+			<div id="vantos">
+				<h3>Vantos</h3>
+				<p>Phase: <span id="v-phase"></span></p>
+				<p>Light: <span id="v-light"></span>%</p>
+				<p>Moonrise: <span id="v-rise"></span></p>
+				<p>Peak at: <span id="v-pos"></span></p>
+				<p>Moonset: <span id="v-set"></span></p>
+			</div>
+			<div id="kodos">
+				<h3>Kodos</h3>
+				<p>Phase: <span id="k-phase"></span></p>
+				<p>Light: <span id="k-light"></span>%</p>
+				<p>Moonrise: <span id="k-rise"></span></p>
+				<p>Peak at: <span id="k-pos"></span></p>
+				<p>Moonset: <span id="k-set"></span></p>
+			</div>
+		</div>
+		<div id="moonluck" style="display: none">
+			<table id="ml">
+				<tr>
+					<th scope="col">Alignment</th>
+					<th scope="col">Nothing</th>
+					<th scope="col">Luck</th>
+					<th scope="col">Portent</th>
+				</tr>
+				<tr id="lg">
+					<th scope="row">Lawful Good</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="ng">
+					<th scope="row">Neutral Good</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="cg">
+					<th scope="row">Chaotic Good</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="ln">
+					<th scope="row">Lawful Neutral</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="tn">
+					<th scope="row">True Neutral</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="cn">
+					<th scope="row">Chaotic Neutral</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="le">
+					<th scope="row">Lawful Evil</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="ne">
+					<th scope="row">Neutral Evil</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="ce">
+					<th scope="row">Chaotic Evil</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

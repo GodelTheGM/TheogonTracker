@@ -1,8 +1,11 @@
 var month, day, absDay, info, zod;
 var vLight, kLight, totLight;
+var keySeq = []
 
 var V_PER = 30;
 var K_PER = 18;
+// uuddlr-ctrl
+var CHEAT = [38, 38, 40, 40, 37, 39, 17];
 
 var cal = [
 	{
@@ -237,6 +240,14 @@ $(document).ready(function() {
 	update();
 	$('#mon').change(function(){update()});
 	$('#day').change(function(){update()});
+	$(document).keydown(function(e){
+		var k = e.which;
+		console.log(k);
+		if (keySeq.length >= CHEAT.length) keySeq = keySeq.slice(1);
+		keySeq.push(k);
+		console.log(keySeq);
+		if (arraysEqual(keySeq, CHEAT)) $('#moonluck').show();
+	});
 });
 
 function update() {
@@ -365,4 +376,15 @@ function lunarPhase(inc) {
 		phase = 0;
 	}
 	return moons[phase];
+}
+
+function arraysEqual(a, b) {
+	if (a === b) return true;
+	if (a == null || b == null) return false;
+	if (a.length !== b.length) return false;
+
+	for (var i = 0; i < a.length; i++) {
+		if (a[i] !== b[i]) return false;
+	}
+	return true;
 }

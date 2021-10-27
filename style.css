@@ -1,0 +1,22 @@
+div {
+	font-family: Goudy Old Style;
+}
+
+#general {
+	text-align: center;
+	font-size: larger;
+	font-weight: bold;
+}
+
+#moons {
+	border: 5px solid #99CCFF;
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+#moons > div {
+	display:  inline-block;
+	margin:  10px auto;
+}

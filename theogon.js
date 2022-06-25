@@ -237,6 +237,7 @@ var zodiac = [
 ];
 
 $(document).ready(function() {
+	initialize();
 	update();
 	$('#mon').change(function(){update()});
 	$('#day').change(function(){update()});
@@ -249,6 +250,21 @@ $(document).ready(function() {
 		if (arraysEqual(keySeq, CHEAT)) $('#moonluck').show();
 	});
 });
+
+function initialize() {
+	const params = new URLSearchParams(window.location.search);
+	console.log('month', params.get('month'))
+	let m = parseInt(params.get('month'));
+	if (!(m && m >= 1 && m <= 12)) {
+		m = 1;
+	}
+	let d = parseInt(params.get('day'));
+	if (!(d && d >= 1 && d <= 28)) {
+		d = 1;
+	}
+	$('#mon').val(m);
+	$('#day').val(d);
+}
 
 function update() {
 	month = parseInt($('#mon').val());
@@ -337,15 +353,15 @@ function tabUpdate(alignment, light) {
 	// light min->0 max->200
 	// Normalize moonluck
 	light = light/2;
-	console.log("Normalized moonluck: " + light);
+	//console.log("Normalized moonluck: " + light);
 	// Convert to percentage
 	light = Math.floor(light*100);
-	console.log("Light as percentage: " + light);
+	//console.log("Light as percentage: " + light);
 	nothingChance = 100 - light; 
 	mlSplit = nothingChance + Math.floor(light * 0.6);
 
 	// propagate nothing chance
-	console.log(selectorF + "2" + selectorB);
+	//console.log(selectorF + "2" + selectorB);
 	$(selectorF + "2" + selectorB).text("< " + nothingChance);
 	// propagate Luck chance
 	$(selectorF + "3" + selectorB).text("<= " + mlSplit);

@@ -1,6 +1,7 @@
 var month, day, absDay, info, zod;
 var vLight, kLight, totLight;
-var keySeq = []
+var keySeq = [];
+const URL = "https://godelthegm.github.io/TheogonTracker/";
 
 var V_PER = 30;
 var K_PER = 18;
@@ -255,8 +256,8 @@ function initialize() {
 	const params = new URLSearchParams(window.location.search);
 	console.log('month', params.get('month'))
 	let m = parseInt(params.get('month'));
-	if (!(m && m >= 1 && m <= 12)) {
-		m = 1;
+	if (!(m && m >= 0 && m <= 11)) {
+		m = 0;
 	}
 	let d = parseInt(params.get('day'));
 	if (!(d && d >= 1 && d <= 28)) {
@@ -271,6 +272,8 @@ function update() {
 	day = parseInt($('#day').val());
 	absDay = month*30 + day - 1;
 	console.log(`(${month}, ${day}, ${absDay})`);
+
+	$('#permalink').attr('href', `${URL}?month=${month}&day=${day}`);
 
 	info = cal[month];
 	zod = zodiac[Math.floor(absDay/18)];
